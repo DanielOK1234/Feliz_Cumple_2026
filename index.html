@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feliz cumpleaños 2026!🥰</title>
+
+    <style>
+
+        /* ================================
+           CONFIGURACIÓN GENERAL
+        ================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f8edf0;
+            color: #4a3038;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+.decoracion-lateral {
+    position: fixed;
+    top: 0;
+    width: 180px;
+    height: 100vh;
+
+    z-index: 10;
+    pointer-events: none;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 108%;
+
+    opacity: 0.9;
+}
+
+.izquierda {
+    left: 0;
+    background-image: url("fotos/flor-izq.png");
+}
+
+.derecha {
+    right: 0;
+    background-image: url("fotos/flor-der.png");
+}
+
+.foto-familiar {
+    margin: 40px 0;
+
+    max-width: 800px;
+    width: 100%;
+
+    padding: 15px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 40px rgba(60, 30, 40, 0.2);
+
+    transform: rotate(1deg);
+}
+
+.foto-familiar img {
+    width: 100%;
+    display: block;
+}
+
+.foto-scroll.invertido {
+    flex-direction: row-reverse;
+}
+
+.foto-scroll.invertido img {
+    transform: translateX(120px) rotate(3deg);
+}
+
+.foto-scroll.invertido .texto-recuerdo {
+    transform: translateX(-120px);
+}
+
+.foto-scroll.invertido.visible img {
+    transform: translateX(0) rotate(3deg);
+}
+
+.foto-scroll.invertido.visible .texto-recuerdo {
+    transform: translateX(0);
+}
+
+        /* ================================
+           PORTADA
+        ================================= */
+
+        .portada {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
+
+            background:
+                radial-gradient(circle at top, #fff8fa, transparent 60%),
+                #f8edf0;
+        }
+
+        .corazon-portada {
+            font-size: 75px;
+            animation: latido 1.8s infinite;
+        }
+
+        .portada h1 {
+            font-size: clamp(42px, 8vw, 80px);
+            margin: 20px 0 10px;
+            color: #9d405d;
+        }
+
+        .portada p {
+            font-size: 22px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .bajar {
+            margin-top: 50px;
+            font-size: 18px;
+            opacity: 0.7;
+            animation: subirBajar 2s infinite;
+        }
+
+
+        /* ================================
+           SECCIONES
+        ================================= */
+
+        section {
+            min-height: 100vh;
+            padding: 100px 25px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: clamp(32px, 6vw, 55px);
+            color: #9d405d;
+            margin-bottom: 25px;
+        }
+
+        section p {
+            max-width: 700px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+/* ================================
+   FOTOS
+================================= */
+
+.foto-scroll {
+    width: 100%;
+    max-width: 950px;
+
+    margin-top: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+.foto-scroll img {
+    width: 380px;
+    height: 260px;
+    max-width: 80vw;
+
+    padding: 12px;
+    background: white;
+
+    object-fit: cover;
+    display: block;
+
+    box-shadow:
+        0 15px 35px rgba(60, 30, 40, 0.2);
+
+    opacity: 0;
+
+    transform: translateX(-120px) rotate(-3deg);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+.texto-recuerdo {
+    max-width: 350px;
+
+    opacity: 0;
+
+    transform: translateX(120px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.foto-scroll.visible img {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        rotate(-3deg);
+}
+
+.foto-scroll.visible .texto-recuerdo {
+    opacity: 1;
+
+    transform: translateX(0);
+}
+
+.texto-recuerdo h3 {
+    font-size: 30px;
+    color: #9d405d;
+    margin-bottom: 10px;
+}
+
+.texto-recuerdo p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.foto-scroll img.foto-vertical {
+    width: 300px;
+    height: 380px;
+    object-fit: cover;
+}
+
+.foto-scroll img.foto-cuadrada {
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
+}
+
+        /* ================================
+           CARTA
+        ================================= */
+
+        .carta {
+            max-width: 750px;
+            width: 100%;
+
+            padding: 50px;
+
+            background: #fffaf2;
+
+            border: 1px solid #e6d5c5;
+
+            box-shadow:
+                0 15px 40px rgba(80, 40, 50, 0.15);
+
+            position: relative;
+        }
+
+        .carta::before {
+            content: "🌹";
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 35px;
+        }
+
+        .carta::after {
+            content: "🌹";
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 35px;
+        }
+
+        .carta h2 {
+            margin-top: 0;
+        }
+
+#carta {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.carta-papel {
+    width: 100%;
+    max-width: 750px;
+    padding: 70px 80px;
+    background: #fffaf5;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(60, 30, 40, 0.18);
+    position: relative;
+    transform: rotate(-1deg);
+}
+
+.carta-papel::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(180, 100, 120, 0.25);
+    pointer-events: none;
+}
+
+.carta-fecha {
+    text-align: right;
+    color: #9d405d;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.carta-papel h2 {
+    text-align: center;
+    color: #9d405d;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.carta-papel p {
+    color: #4f3b40;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.carta-papel .saludo {
+    font-size: 21px;
+    color: #7d354c;
+}
+
+.carta-papel .firma {
+    text-align: right;
+    margin-top: 45px;
+    color: #9d405d;
+    font-size: 20px;
+}
+
+
+        /* ================================
+           FINAL
+        ================================= */
+
+        .final {
+            background: #9d405d;
+            color: white;
+        }
+
+        .final h2 {
+            color: white;
+            font-size: clamp(45px, 9vw, 85px);
+        }
+
+        .final p {
+            font-size: 24px;
+        }
+
+
+        /* ================================
+           ANIMACIONES
+        ================================= */
+
+        @keyframes latido {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes subirBajar {
+
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
+        }
+
+@media (max-width: 700px) {
+
+    /* ===== DECORACIÓN LATERAL ===== */
+
+    .decoracion-lateral {
+        width: 35px;
+        opacity: 0.65;
+        background-image:
+            linear-gradient(
+                to right,
+                rgba(255, 180, 210, 0.65),
+                transparent
+            ) !important;
+        background-size: 100% 100%;
+    }
+
+    .derecha {
+        background-image:
+            linear-gradient(
+                to left,
+                rgba(255, 180, 210, 0.65),
+                transparent
+            ) !important;
+    }
+
+
+    /* ===== SECCIONES ===== */
+
+    section {
+        min-height: auto;
+        padding: 80px 30px;
+    }
+
+
+    /* ===== PORTADA ===== */
+
+    .portada {
+        min-height: 100vh;
+        padding: 25px;
+    }
+
+    .corazon-portada {
+        font-size: 60px;
+    }
+
+    .portada h1 {
+        font-size: clamp(38px, 11vw, 55px);
+        line-height: 1.15;
+    }
+
+    .portada p {
+        font-size: 18px;
+    }
+
+
+    /* ===== RECUERDOS ===== */
+
+    .foto-scroll,
+    .foto-scroll.invertido {
+        width: 100%;
+        flex-direction: column;
+        gap: 35px;
+        margin-top: 60px;
+    }
+
+    .foto-scroll img,
+    .foto-scroll img.foto-cuadrada,
+    .foto-scroll img.foto-vertical {
+        width: min(88vw, 380px);
+        max-width: 100%;
+    }
+
+    .foto-scroll img {
+        height: 240px;
+    }
+
+    .foto-scroll img.foto-cuadrada {
+        height: min(88vw, 330px);
+    }
+
+    .foto-scroll img.foto-vertical {
+        width: min(75vw, 300px);
+        height: min(95vw, 380px);
+    }
+
+    .texto-recuerdo {
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .texto-recuerdo h3 {
+        font-size: 25px;
+    }
+
+    .texto-recuerdo p {
+        font-size: 17px;
+    }
+
+
+    /* ===== CARTA ===== */
+
+    #carta {
+        min-height: auto;
+        padding: 80px 20px;
+    }
+
+    .carta-papel {
+        padding: 50px 35px;
+    }
+
+    .carta-papel h2 {
+        font-size: 30px;
+    }
+
+    .carta-papel p {
+        font-size: 17px;
+        line-height: 1.7;
+    }
+
+    .carta-fecha {
+        font-size: 14px;
+    }
+
+
+    /* ===== FOTO FAMILIAR ===== */
+
+    .foto-familiar {
+        width: 100%;
+        padding: 10px;
+    }
+
+
+    /* ===== FINAL ===== */
+
+    .final {
+        padding: 100px 25px;
+    }
+
+    .final h2 {
+        font-size: clamp(42px, 12vw, 65px);
+        line-height: 1.1;
+    }
+
+    .final p {
+        font-size: 20px;
+    }
+
+}
+
+.sorpresa {
+    text-align: center;
+}
+
+.sorpresa-intro {
+    margin-bottom: 35px;
+}
+
+.boton-sorpresa {
+    border: none;
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    background: #d95c7f;
+    color: white;
+
+    font-family: inherit;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(80, 30, 50, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.boton-sorpresa:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 12px 25px rgba(80, 30, 50, 0.25);
+}
+
+.boton-sorpresa:active {
+    transform: scale(0.96);
+}
+
+.mensaje-sorpresa {
+    max-width: 650px;
+
+    margin-top: 45px;
+
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        max-height 1s ease;
+}
+
+.mensaje-sorpresa.mostrar {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+
+    max-height: 500px;
+}
+
+.corazones-sorpresa {
+    font-size: 30px;
+    margin-bottom: 20px;
+
+    animation: latido 1.8s infinite;
+}
+
+.mensaje-sorpresa p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.corazon-flotante {
+    position: fixed;
+    bottom: -40px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation: corazonSube 3.5s ease-out forwards;
+}
+
+@keyframes corazonSube {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+
+}
+
+.foto-familiar {
+    opacity: 0;
+    transform: translateY(50px) rotate(1deg);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.foto-familiar.visible {
+    opacity: 1;
+    transform: translateY(0) rotate(1deg);
+}
+
+.carta-papel {
+    opacity: 0;
+    transform: translateY(50px) rotate(-1deg);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+#carta.visible .carta-papel {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="decoracion-lateral izquierda"></div>
+<div class="decoracion-lateral derecha"></div>
+
+</div>
+
+    <!-- ================================
+         PORTADA
+    ================================= -->
+
+    <div class="portada">
+
+        <div class="corazon-portada">
+            ❤️
+        </div>
+
+        <h1>
+            Feliz cumpleaños, mamá
+        </h1>
+
+        <p>
+            He preparado algo especial para ti
+        <p> (me tomo mucho tiempo y esfuerzo, disfrutalo 💖)
+
+       </p>
+
+        <div class="bajar">
+            ↓ Desliza para comenzar ↓
+        </div>
+
+    </div>
+
+<!-- ================================
+     RECUERDOS
+================================= -->
+
+<section class="recuerdos">
+
+    <h2>
+        Algunos recuerdos ❤️
+    </h2>
+
+    <p>
+        Porque hay momentos que merece la pena guardar para siempre.
+    </p>
+
+    <div class="foto-scroll">
+
+    <img class="foto-vertical" src="fotos/foto1.jpg" alt="Un recuerdo especial">
+
+    <div class="texto-recuerdo">
+
+        <h3>
+            📅2016-2018 aprox.
+        </h3>
+
+        <p>
+            No se mucho sobre esta foto pero si se
+              que nos la pasabamos muy bien.😻
+        </p>
+
+    </div>
+
+</div>
+
+<div class="foto-scroll invertido">
+
+    <img class="foto-cuadrada" src="fotos/foto2.png" alt="Otro recuerdo">
+
+    <div class="texto-recuerdo">
+
+        <h3>
+            📅 17 de septiembre de 2021
+        </h3>
+
+        <p>
+            Mi cumpleaños en Foietes como olvidarlo. 🫶
+        </p>
+
+    </div>
+
+</div>
+
+<div class="foto-scroll">
+
+    <img src="fotos/foto3.png" alt="Otro recuerdo">
+
+    <div class="texto-recuerdo">
+
+        <h3>
+            📅 11 de marzo de 2023
+        </h3>
+
+        <p>
+            Este día recuerdo que fuimos a la playa y nos divertimos mucho. ❤️‍🔥
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+    <!-- ================================
+         CARTA
+    ================================= -->
+
+    <section id="carta">
+
+    <div class="carta-papel">
+        <div class="carta-fecha">
+            4 de septiembre de 2026
+        </div>
+
+        <h2>💌 Para mamá</h2>
+
+        <p class="saludo">Querida mamá:</p>
+
+        <p>
+            Quisiera aprovechar para decirte lo importante que has sido
+            para mí y agradecerte por todo lo que has hecho.🥰
+        </p>
+
+        <p>
+            Esta página la he hecho especialmente para ti, con nuestros
+            recuerdos y momentos especiales.
+        </p>
+
+        <p>
+            Espero que cuando leas lo que hice para ti puedas sentir todo el cariño con el que
+            lo he hecho. ❤️
+        </p>
+
+        <p class="firma">
+            Con mucho cariño,<br>
+            Daniel 💙
+        </p>
+    </div>
+</section>
+
+
+
+    <!-- ================================
+         FAMILIA
+    ================================= -->
+
+    <section class="familia">
+
+    <h2>
+        Nuestra Family 🧡👨🏻‍👩🏻‍👧🏻‍👦🏻
+    </h2>
+
+    <div class="foto-familiar">
+
+        <img src="fotos/foto4.png" alt="Foto familiar">
+
+    </div>
+
+    <p>
+        (ignora que estoy mirando hacia abajo😅)
+    </p>
+
+</section>
+
+
+
+    <!-- ================================
+         SORPRESA
+    ================================= -->
+
+    <section class="sorpresa">
+
+    <h2>
+        Una última cosa... 🎁
+    </h2>
+
+    <p class="sorpresa-intro">
+        He preparado algo más para ti.
+    </p>
+
+    <button class="boton-sorpresa" onclick="abrirSorpresa()">
+        💗 Abrir sorpresa
+    </button>
+
+    <div class="mensaje-sorpresa" id="mensajeSorpresa">
+
+        <div class="corazones-sorpresa">
+            ❤️ 💗 ❤️
+        </div>
+
+        <p>
+            Gracias por todos los momentos, por cuidarme,
+            por ayudarme y por estar siempre ahí.
+        </p>
+
+        <p>
+            Esta pequeña página es solo una forma de decirte
+            cuánto te quiero.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ================================
+         FINAL
+    ================================= -->
+
+    <section class="final">
+
+        <h2>
+            Te quiero mamá 😘❤️
+        </h2>
+
+        <p>
+            Feliz cumpleaños.
+        </p>
+
+    </section>
+
+
+<script>
+    const elementos = document.querySelectorAll(".foto-scroll, .foto-familiar, #carta");
+
+    const observador = new IntersectionObserver((entradas) => {
+
+        entradas.forEach((entrada) => {
+
+            if (entrada.isIntersecting) {
+                entrada.target.classList.add("visible");
+            }
+
+        });
+
+    }, {
+        threshold: 0.25
+    });
+
+
+    elementos.forEach((elemento) => {
+        observador.observe(elemento);
+    });
+
+function abrirSorpresa() {
+
+    const mensaje = document.getElementById("mensajeSorpresa");
+    const boton = document.querySelector(".boton-sorpresa");
+
+    mensaje.classList.add("mostrar");
+
+    boton.textContent = "❤️ Sorpresa abierta";
+    boton.disabled = true;
+
+    crearCorazones();
+}
+
+
+function crearCorazones() {
+
+    const cantidad = 18;
+
+    for (let i = 0; i < cantidad; i++) {
+
+        const corazon = document.createElement("span");
+
+        corazon.className = "corazon-flotante";
+        corazon.textContent = ["❤️", "💕", "💗", "💖"][Math.floor(Math.random() * 4)];
+
+        corazon.style.left = Math.random() * 100 + "vw";
+        corazon.style.animationDelay = Math.random() * 0.8 + "s";
+        corazon.style.fontSize = (18 + Math.random() * 20) + "px";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+            corazon.remove();
+        }, 4000);
+    }
+}
+
+</script>
+
+
+</body>
+
+</html>
